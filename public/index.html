@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Button-click Count</title>
+</head>
+<body>
+  <center/><button id="num">Click here</button>
+    <h1 id="count"></h1>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  $(function () {
+    var socket = io();
+    $('#num').click( () => {
+      socket.emit('click');
+  });
+  socket.on('clickChanged', clicks => {
+  $('#count').html(clicks);
+  });
+  });
+
+</script>
+</body>
+
+</html>
