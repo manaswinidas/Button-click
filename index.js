@@ -15,6 +15,12 @@ io.on('connection', function(socket){
     console.log('Clicked');
     io.emit('clickChanged', ++clicks);
   });
+
+  //Disconnect event
+  socket.on('disconnect',function () {
+    console.log('Disconnected!');
+  });
+
 });
 
 server.listen(3000, () => {
